@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css grid 网格布局</title>
+    <style>
+    *, html, body {
+        margin: 0;
+        padding: 0;
+    }
+    .desc {
+        text-align: center;
+    }
+    .box {
+        display: flex;
+    }
+    .box .flex-item {
+        margin: 0 5px;
+        border: solid 1px #ccc;
+    }
+    .container {
+        display: grid;
+        grid-gap: 1px;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+    .container .item {
+        background-color: brown;
+    }
+    #box1 { /* 三行三列 */
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    #box2 {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-areas: 'box2_1 box2_2 box2_2' 'box2_1 box2_3 box2_4' 'box2_1 box2_5 box2_5';
+    }
+    #box2 .item:nth-child(1) {
+        grid-area: box2_1; /* 空间命名 */
+    }
+    #box2 .item:nth-child(2) {
+        grid-area: box2_2; /* 空间命名 */
+    }
+    #box2 .item:nth-child(3) {
+        grid-area: box2_3; /* 空间命名 */
+    }
+    #box2 .item:nth-child(4) {
+        grid-area: box2_4; /* 空间命名 */
+    }
+    #box2 .item:nth-child(5) {
+        grid-area: box2_5; /* 空间命名 */
+    }
+    #box3 {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    #box4 {
+        grid-template-rows: 1fr 2fr 1fr;
+    }
+    #box5 {
+        grid-gap: 5px;
+    }
+    #box6 {
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 5px;
+    }
+    </style>
+</head>
+<body> 
+    <p>资源引用：<a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">（CSS Grid 网格布局教程 - 阮一峰的网络日志）</a></p>
+    <p>笔记指导：<a href="https://github.com/LinkXSystem/learn-guide/blob/master/html/layout/grid.html">有趣的学习笔记 (*^_^*)</a></p>
+    <p>笔记内容：
+        <ul>
+            <li><a>display:grid;确定类型</a></li>
+            <li><a>grid-template-columns;决定竖</a></li>
+            <li><a>grid-template-row;决定横</a></li>
+            <li><a>单位px，百分比，fr倍，fr只和fr之间有关联</a></li>
+            <li><a>minmax最小最大值，auto自适应</a></li>
+            <li><a>repeat(c,v)重复，重复值。c[:auto-fill]自动填充</a></li>
+        </ul>
+    </p>
+    <div class="box" title="数据展示">
+        <div class="flex-item">
+            <div class="container" id="box1">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+            <p class="desc">布局练习</p>
+        </div>
+        <div class="flex-item">
+            <div class="container" id="box2">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+            <p class="desc">仿写练习</p>
+        </div>
+        <div class="flex-item">
+            <div class="container" id="box3">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+            <p class="desc">自适应竖</p>
+        </div>
+        <div class="flex-item">
+            <div class="container" id="box4">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+            <p class="desc">自适应横</p>
+        </div>
+        <div class="flex-item">
+            <div class="container" id="box5">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+            <p class="desc">横间隙5px</p>
+        </div>
+        <div class="flex-item">
+            <div class="container" id="box6">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+            <p class="desc">竖间隙5px</p>
+        </div>
+    </div>
+</body>
+</html>
